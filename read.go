@@ -26,7 +26,7 @@
 //	Array, for an array of values.
 //	Stream, for an opaque data stream and associated header dictionary.
 //
-// The accessors on ValueùInt64, Float64, Bool, Name, and so onùreturn
+// The accessors on ValueÔøΩInt64, Float64, Bool, Name, and so onÔøΩreturn
 // a view of the data as the given type. When there is no appropriate view,
 // the accessor returns a zero result. For example, the Name accessor returns
 // the empty string if called on a Value v for which v.Kind() != Name.
@@ -44,7 +44,7 @@
 // the package. Equally important, traversal of other PDF data structures can be implemented
 // in other packages as needed.
 //
-package pdf // import "rsc.io/pdf"
+package pdf
 
 // BUG(rsc): The package is incomplete, although it has been used successfully on some
 // large real-world PDF files.
@@ -882,7 +882,7 @@ var passwordPad = []byte{
 }
 
 func (r *Reader) initEncrypt(password string) error {
-	// See PDF 32000-1:2008, ù7.6.
+	// See PDF 32000-1:2008, ÔøΩ7.6.
 	encrypt, _ := r.resolve(objptr{}, r.trailer["Encrypt"]).data.(dict)
 	if encrypt["Filter"] != name("Standard") {
 		return fmt.Errorf("unsupported PDF: encryption filter %v", objfmt(encrypt["Filter"]))
