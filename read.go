@@ -26,7 +26,7 @@
 //	Array, for an array of values.
 //	Stream, for an opaque data stream and associated header dictionary.
 //
-// The accessors on Value�Int64, Float64, Bool, Name, and so on�return
+// The accessors on Value Int64, Float64, Bool, Name, and so on return
 // a view of the data as the given type. When there is no appropriate view,
 // the accessor returns a zero result. For example, the Name accessor returns
 // the empty string if called on a Value v for which v.Kind() != Name.
@@ -882,7 +882,7 @@ var passwordPad = []byte{
 }
 
 func (r *Reader) initEncrypt(password string) error {
-	// See PDF 32000-1:2008, �7.6.
+	// See PDF 32000-1:2008, 7.6.
 	encrypt, _ := r.resolve(objptr{}, r.trailer["Encrypt"]).data.(dict)
 	if encrypt["Filter"] != name("Standard") {
 		return fmt.Errorf("unsupported PDF: encryption filter %v", objfmt(encrypt["Filter"]))
